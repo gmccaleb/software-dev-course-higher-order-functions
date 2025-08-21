@@ -95,6 +95,11 @@ Step-by-Step:
 
 // console.log(discountedProducts);
 
+function applyDiscount(discount) {
+return function (price) {
+return price - price * (discount / 100);
+};
+}
 const discount10 = applyDiscount(10); // 10% discount
 const discountedPrices = products.map((product) => ({
 ...product,
