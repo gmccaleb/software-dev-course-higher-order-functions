@@ -84,16 +84,24 @@ Step-by-Step:
 3. Use this returned function inside a `map()` call to apply discounts to all products.
 */
 
-function applyDiscount(discountPercent){
-  function discountCalc(items){
-    return items.price - items.price * (discountPercent / 100);
-  }
-  return discountCalc;
+// function applyDiscount(discountPercent){
+//   function discountCalc(items){
+//     return items.price - items.price * (discountPercent / 100);
+//   }
+//   return discountCalc;
   
-}
-let discountedProducts = products.map(applyDiscount(25));
+// }
+// let discountedProducts = products.map(applyDiscount(25));
 
-console.log(discountedProducts);
+// console.log(discountedProducts);
+
+const discount10 = applyDiscount(10); // 10% discount
+const discountedPrices = products.map((product) => ({
+...product,
+price: discount10(product.price),
+}));
+console.log("Discounted Prices:", discountedPrices);
+
 /*
 🔹 Task 4: Calculate Total Inventory Value
 
